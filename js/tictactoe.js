@@ -7,25 +7,27 @@ var gameArray = [
 					["", "", ""]
 				];
 
-// RESET
-var resetArray = [
-					["", "", ""], 
-					["", "", ""], 
-					["", "", ""]
-				];
-
-var player1 = "X";
-var player2 = "O";
+var player1 = "1";
+var player2 = "2";
 var player = 1;
 var turns = 0;
 
 // RESET
 var resetGame = function() {
-	gameArray = resetArray; // reset gameArray
-	_.each($('.square'), function() {
-		$('span').html(""); // reset board squares
-	});
-	turns = 0;
+	// reset gameArray
+	gameArray = [
+					["", "", ""], 
+					["", "", ""], 
+					["", "", ""]
+				]; 
+	// reset board squares
+	$('.square > button').html(''); 
+	// reset turns
+	turns = 0; 
+	// enable click on square
+	$('.square').prop('disabled', false);
+	// reset to player 1
+	player = 1;
 
 }
 
@@ -39,6 +41,16 @@ var playerTurn = function(turnNum) {
 	 	player = 1;
 	 	return player2;
 	 }
+}
+
+var chooseMarker = function(playerNum) {
+	var $dog = $('<img>').attr('src', 'images/tommy-marker.png');
+	var $cat = $('<img>').attr('src', 'images/pusheen-marker.png')
+	if (playerNum === "2") {
+		return $dog;
+	} else if (playerNum === "1") {
+		return $cat;
+	}
 }
 
 // SET PLAYER ON BOARD
@@ -87,7 +99,7 @@ var checkDiag = function(gameBoard) {
 
 // CHECK WINNER
 var getWinner = function() {	
-	return checkRow(gameArray) || checkCol(gameArray) || checkDiag(gameArray)		
+	return checkRow(gameArray) || checkCol(gameArray) || checkDiag(gameArray)
 }
 
 // CHOOSE SQUARE
@@ -95,21 +107,28 @@ $('.board').on('click', '.square', function() {
 	var $position = $(this).attr('data-index').split(""); // get the id of clicked i.e. 's01' => ['s', '0', '1']
 	var row = parseInt($position[0]); // ['0', '1'] => 0
 	var col = parseInt($position[1]); // [0', '1'] => 1
-	var markSquare = playerTurn(player);
-
-	$(this).find('span').html(markSquare); // changes the value of the box to player symbol
+	var markArray = playerTurn(player);
+	var markSquare = chooseMarker(markArray);
+	// disable cicked box after marking
+	$(this).prop('disabled', true); 
+	// changes the value of the box to player symbol
+	$(this).find('button').html(markSquare); 
+	// sets the gameArray
+	setSquare(row, col, markArray); 
+	// add turn per click
+	turns++; 
 	
-	setSquare(row, col, markSquare); // sets the gameArray
-
-	turns++;
-	
+	// check for winner
 	var winner = getWinner();
-	
 	if (winner) {
 		console.log("winner: ", winner);
-	}
-
-	if (turns === 9) {
+		alert("The winner is PLAYER " + winner + "!");
+		// disable clicking all squares
+		$('.square').prop('disabled', true); 
+	} else if (turns === 9) {
 		console.log("tie");
+		alert("The game is TIED!");
 	}
 });
+
+$('#reset').on('click', resetGame);
