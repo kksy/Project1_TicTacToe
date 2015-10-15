@@ -7,26 +7,68 @@
 </head>
 <body>
 
+	<!-- MODAL -->
+	<div class="overlay"></div>
+  	<div class="modal1"><h5>CHOOSE YOUR MARKER</h5>
+  		<div class="images">
+			<img src="images/pusheen-marker.png" alt="">
+			<img src="images/tommy-marker.png" alt="">
+			<img src="images/bulba-marker.png" alt="">
+			<img src="images/pika-marker.png" alt="">
+			<img src="images/pinky-marker.png" alt="">
+			<img src="images/rainbow-marker.png" alt="">
+			<button id="done1">DONE</button>
+		</div>
+  	</div>
+	
+ 	<div class="modal2"><h5>CHOOSE YOUR MARKER</h5>
+  		
+		<img src="images/pusheen-marker.png" alt="">
+		<img src="images/tommy-marker.png" alt="">
+		<img src="images/bulba-marker.png" alt="">
+		<img src="images/pika-marker.png" alt="">
+		<img src="images/pinky-marker.png" alt="">
+		<img src="images/rainbow-marker.png" alt="">
+		<button id="done2">DONE</button>
+		
+  	</div>
+
+  	<div class="modal3"></div>
+
 	<header>
 		<h1>Tic Tac Toe</h1>
-		<button id="reset">RESET</button>
+		
+		<table>
+			 <tr>
+			    <th>P1: <span id="score-1">0</span></th>
+			    <th>ROUND <span id="round">1</span></th> 
+			    <th>P2: <span id="score-2">0</span></th>
+  			</tr>
+  		</table>
+
+		<button id="marker1">MARKER 1</button>
+		<button id="reset">NEW GAME</button>
+		<button id="marker2">MARKER 2</button>
 	</header>
 
 	<div class="board">
 
-		<div class="square" id="s00" data-index="004"><button></button></div>
-		<div class="square" id="s01" data-index="019"><button></button></div>
-		<div class="square" id="s02" data-index="022"><button></button></div>
-		<div class="square" id="s10" data-index="103"><button></button></div>
-		<div class="square" id="s11" data-index="115"><button></button></div>
-		<div class="square" id="s12" data-index="127"><button></button></div>
-		<div class="square" id="s20" data-index="208"><button></button></div>
-		<div class="square" id="s21" data-index="211"><button></button></div>
-		<div class="square" id="s22n6" data-index="22"><button></button></div>
+		<div class="square" id="s00" data-index="00"><button></button></div>
+		<div class="square" id="s01" data-index="01"><button></button></div>
+		<div class="square" id="s02" data-index="02"><button></button></div>
+		<div class="square" id="s10" data-index="10"><button></button></div>
+		<div class="square" id="s11" data-index="11"><button></button></div>
+		<div class="square" id="s12" data-index="12"><button></button></div>
+		<div class="square" id="s20" data-index="20"><button></button></div>
+		<div class="square" id="s21" data-index="21"><button></button></div>
+		<div class="square" id="s22" data-index="22"><button></button></div>
 
 	</div>
 
-	<footer>images from pusheen.com</footer>
+	<div id="player-2">
+	</div>
+
+	<footer>&copy 2015 Kylie Sy: WDI Project 1<br>images from pusheen.com</footer>
 
 	<script src="js/jquery.js"></script>
 	<script src="js/underscore.js"></script>
