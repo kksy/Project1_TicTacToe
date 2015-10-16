@@ -1,5 +1,6 @@
 # Project1_TicTacToe
-WDI Project 1
+WDI Project 1 <br>
+Project link: http://kksy.github.io/Project1_TicTacToe/
 
 ## Current Version
 ### Features
