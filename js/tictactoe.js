@@ -133,11 +133,20 @@ $doneBtn2.on('click', function() {
 
 $('.modal1').on('click', 'img', function() {
 	$markerSrc1 = $(this).attr('src');
+	// removes opacity class
+	$('img').removeClass('clicked-marker1');
+	// highlights current click
+	$(this).addClass('clicked-marker1');
+	console.log(this);
 	console.log($markerSrc1); 
 });
 
 $('.modal2').on('click', 'img', function() {
 	$markerSrc2 = $(this).attr('src');
+	// removes opacity class
+	$('img').removeClass('clicked-marker2');
+	// highlights current click
+	$(this).addClass('clicked-marker2');
 	console.log($markerSrc2); 
 });
 

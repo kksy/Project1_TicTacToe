@@ -74,9 +74,22 @@ header {
 	height: 200px;
 }
 
+/* -- MODAL IMAGES -- */
+
 .modal1 img, .modal2 img {
 	max-width: 24%;
+	opacity: 0.5;
 }
+
+.modal1 img:hover, .modal2 img:hover {
+	opacity: 1;
+}
+
+/* clicked image class */
+img.clicked-marker1, img.clicked-marker2 {
+	opacity: 1;
+}
+
 
 /* --- BUTTONS --- */
 #reset, #marker1, #marker2, #done1, #done2 {
