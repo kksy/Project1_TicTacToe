@@ -11,11 +11,14 @@ WDI Project 1
 + Alert using manually made modal window
 
 ### Suggestions and Bugs
-+ Adding an image element inside the button stretches the container in other browsers. Changing the div or button background may help, instead of using the current method
 + On mobile, the modals are not in the proper position
 + Images too small on mobile
 
 ## Past Commit
+
+### Fixed 
++ Adding an image element inside the button stretches the container in other browsers
+
 ### First Commit
 + Tic Tac Toe game working with check for winner and tie in console
 + Applied CSS to front end
