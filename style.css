@@ -21,6 +21,8 @@ html, body {
 body {
 	font-family: "Timeburner";
 	color: #413D3D;
+	background: url(images/pusheen-tile.png);
+	background-blend-mode: lighten;
 }
 
 h1 {
@@ -162,6 +164,7 @@ th:last-child {
 	margin-bottom: 10px;
 	position: relative;
 	background-color: #FFF8E3;
+	background-position: center;
 }
 
 .square:last-child, .square:nth-last-child(2), .square:nth-last-child(3) {
@@ -191,4 +194,10 @@ footer {
 	background-color: #CCCCCC;
 	padding: 10px;
 	font-family: "Helvetica";
+}
+
+.board, table, h1, footer, #reset, #marker1, #marker2 {
+	-webkit-box-shadow: 6px 6px 19px -6px rgba(50, 50, 50, 1);
+-moz-box-shadow:    6px 6px 19px -6px rgba(50, 50, 50, 1);
+box-shadow:         6px 6px 19px -6px rgba(50, 50, 50, 1);
 }
