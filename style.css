@@ -1,13 +1,26 @@
 * {
 	box-sizing: border-box;
 }
+
 @font-face {
     font-family: Timeburner;
     src: url(fonts/timeburner_regular.ttf);
 }
+
 @font-face {
     font-family: Organo;
     src: url(fonts/22203.TTF);
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%
+}
+
+body {
+	font-family: "Timeburner";
+	color: #413D3D;
 }
 
 h1 {
@@ -27,15 +40,16 @@ h5 {
 	color: #413D3D;
 }
 
-body {
-	font-family: "Timeburner";
-	color: #413D3D;
-}
-
 header {
 	text-align: center;
 	max-width: 470px;
-	margin: 10px auto;
+	margin: 0 auto 10px auto;
+}
+
+.container {
+	position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* --- MODAL --- */
@@ -147,23 +161,7 @@ th:last-child {
 	margin-right: 10px;
 	margin-bottom: 10px;
 	position: relative;
-}
-
-button img {
-	max-width: 100%;
-	vertical-align: top;
-}
-
-.square button {
-	vertical-align: top;
 	background-color: #FFF8E3;
-	width: 150px;
-	height: 150px;
-	border: none;
-	position: absolute;
-	font-size: 50px;
-	outline: none;
-	padding: 0;
 }
 
 .square:last-child, .square:nth-last-child(2), .square:nth-last-child(3) {
@@ -175,11 +173,11 @@ button img {
 }
 
 /* --- GAME BOARD HOVER --- */
-button.hover-colour {
-background-color: #F7D7CD;
+.square.hover-colour {
+	background-color: #F7D7CD;
 }
 
-button.hover-none {
+.square.hover-none {
 	background-color: #FFF8E3;
 }
 

@@ -50,8 +50,8 @@ var resetGame = function() {
         ["", "", ""],
         ["", "", ""]
     ];
-    // reset board squares
-    $('.square > button').html('');
+    // remove markers from board
+    $('.square').css('background-image', 'none');
     // reset turns
     turns = 0;
     // enable click on square
@@ -68,7 +68,7 @@ var resetGame = function() {
 	// display marker button
 	markerDisplay('initial')
 	// enable hover colour
-    $('.square > button').removeClass('hover-none');
+    $('.square').removeClass('hover-none');
 }
 
 $resetBtn.on('click', resetGame);
@@ -81,8 +81,8 @@ var continueGame = function() {
         ["", "", ""],
         ["", "", ""]
     ];
-    // reset board squares
-    $('.square > button').html('');
+    // remove markers from board
+    $('.square').css('background-image', 'none');
     // reset turns
     turns = 0;
     // enable click on square
@@ -96,7 +96,7 @@ var continueGame = function() {
 	// display marker button
     markerDisplay('initial');
     // enable hover colour
-    $('.square > button').removeClass('hover-none');
+    $('.square').removeClass('hover-none');
 }
 
 // DETERMINES PLAYER ------------------------------------
@@ -113,12 +113,10 @@ var playerTurn = function(turnNum) {
 
 // CHANGING MARKER ------------------------------------
 $markerBtn1.on('click', function() {
-	console.log("change marker");
 	modalDisplay('.modal1', 'visible');
 });
 
 $markerBtn2.on('click', function() {
-	console.log("change marker");
 	modalDisplay('.modal2', 'visible');
 });
 
@@ -136,7 +134,6 @@ $('.modal1').on('click', 'img', function() {
 	$('img').removeClass('clicked-marker1');
 	// highlights current click
 	$(this).addClass('clicked-marker1');
-	console.log($markerSrc1); 
 });
 
 $('.modal2').on('click', 'img', function() {
@@ -149,8 +146,8 @@ $('.modal2').on('click', 'img', function() {
 
 
 var chooseMarker = function(playerNum) {
-    var $cat = $('<img>').attr('src', $markerSrc1);
-    var $dog = $('<img>').attr('src', $markerSrc2);
+    var $cat = $markerSrc1;
+    var $dog = $markerSrc2;
     if (playerNum === player1) {
         return $cat;
     } else if (playerNum === player2) {
@@ -240,7 +237,7 @@ var getWinner = function() {
 }
 
 // HOVER SQUARE
-$('.square > button').hover(function() {
+$('.square').hover(function() {
 		$(this).addClass('hover-colour');
 	}, function() {
 		$(this).removeClass('hover-colour');
@@ -252,15 +249,16 @@ $('.board').on('click', '.square', function() {
     var row = parseInt($position[0]); // ['0', '1'] => 0
     var col = parseInt($position[1]); // [0', '1'] => 1
     var markArray = playerTurn(player);
-    var markSquare = chooseMarker(markArray);
+    var markerImgPath = chooseMarker(markArray);
     // hide marker button
     markerDisplay('none');
     // disable hover
-    $(this).find('button').addClass('hover-none');
+    $(this).addClass('hover-none');
     // disable cicked box after marking
     $(this).prop('disabled', true);
     // changes the value of the box to player symbol
-    $(this).find('button').html(markSquare);
+    // $(this).find('button').html(markSquare);
+    $(this).css('background-image', 'url(' + markerImgPath + ')');
     // sets the gameArray
     setSquare(row, col, markArray);
     // add turn per click
