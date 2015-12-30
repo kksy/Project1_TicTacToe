@@ -198,6 +198,6 @@ footer {
 
 .board, table, h1, footer, #reset, #marker1, #marker2 {
 	-webkit-box-shadow: 6px 6px 19px -6px rgba(50, 50, 50, 1);
--moz-box-shadow:    6px 6px 19px -6px rgba(50, 50, 50, 1);
-box-shadow:         6px 6px 19px -6px rgba(50, 50, 50, 1);
+	-moz-box-shadow:    6px 6px 19px -6px rgba(50, 50, 50, 1);
+	box-shadow:         6px 6px 19px -6px rgba(50, 50, 50, 1);
 }
