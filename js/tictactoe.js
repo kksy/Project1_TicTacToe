@@ -1,4 +1,3 @@
-console.log("tictactoe.js is running");
 
 // EMPTY BOARD
 var gameArray = [
@@ -137,7 +136,6 @@ $('.modal1').on('click', 'img', function() {
 	$('img').removeClass('clicked-marker1');
 	// highlights current click
 	$(this).addClass('clicked-marker1');
-	console.log(this);
 	console.log($markerSrc1); 
 });
 
@@ -147,7 +145,6 @@ $('.modal2').on('click', 'img', function() {
 	$('img').removeClass('clicked-marker2');
 	// highlights current click
 	$(this).addClass('clicked-marker2');
-	console.log($markerSrc2); 
 });
 
 
@@ -237,21 +234,16 @@ var getWinner = function() {
     // update score
     if (winner === player1) {
 		score1++;
-		console.log("score1:", score1);
 	} else if (winner === player2) {
 		score2++;
-		console.log("score2:", score2);
 	}
 }
 
 // HOVER SQUARE
 $('.square > button').hover(function() {
-		console.log(this);
 		$(this).addClass('hover-colour');
 	}, function() {
-		console.log("this is a hover out");
 		$(this).removeClass('hover-colour');
-		console.log(this);
 	});
 
 // CLICKED SQUARE ------------------------------------
